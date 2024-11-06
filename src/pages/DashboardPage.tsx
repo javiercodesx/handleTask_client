@@ -1,6 +1,16 @@
 import { Link } from "react-router-dom"
+import { useForm } from "react-hook-form"
 
 export default function DashboardPage() {
+
+  const initialValues = {
+    projectName: "",
+    clientName: "",
+    description: ""
+  }
+
+  const { register, handleSubmit, formState: { errors } } = useForm({defaultValues: initialValues})
+
   return (
     <>
       <h1 className="text-5xl font-black">My projects</h1>
@@ -12,6 +22,8 @@ export default function DashboardPage() {
           to='/projects/create'
         >New project</Link>
       </nav>
+
+      
     </>
   )
 }
