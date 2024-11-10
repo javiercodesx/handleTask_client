@@ -1,19 +1,6 @@
 import { Link } from "react-router-dom"
-import { useForm } from "react-hook-form"
 
 export default function DashboardPage() {
-
-  const initialValues = {
-    projectName: "",
-    clientName: "",
-    description: ""
-  }
-
-  const { register, handleSubmit, formState: { errors } } = useForm({defaultValues: initialValues})
-
-  const handleForm = (data) => {
-    console.log(data)
-  }
 
   return (
     <>
@@ -28,17 +15,6 @@ export default function DashboardPage() {
           >New project</Link>
         </nav>
 
-        <form
-          className=" mt-10 bg-white shadow-md p-10 rounded-md"
-          onSubmit={handleSubmit(handleForm)}
-          noValidate
-        >
-          <input 
-            type="submit" 
-            value="Create project"
-            className="bg-fuchsia-700 hover:bg-fuchsia-600 w-full p-3 text-white uppercase font-bold cursor-pointer transition-colors"
-          />
-        </form>
       </div>
     </>
   )

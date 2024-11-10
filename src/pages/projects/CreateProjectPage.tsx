@@ -1,6 +1,20 @@
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import ProjectForm from "@/components/projects/ProjectForm";
 
 export default function CreateProjectPage() {
+
+  const initialValues = {
+    projectName: "",
+    clientName: "",
+    description: ""
+  }
+
+  const { register, handleSubmit, formState: { errors } } = useForm({defaultValues: initialValues})
+
+  const handleForm = () => {
+  }
+
   return (
     <>
         <h1 className="text-5xl font-black">Create project</h1>
@@ -12,6 +26,23 @@ export default function CreateProjectPage() {
             to='/'
           >Back to projects</Link>
         </nav>
+
+        <form
+          className=" mt-10 bg-white shadow-md p-10 rounded-md"
+          onSubmit={handleSubmit(handleForm)}
+          noValidate
+        >
+          <ProjectForm
+            register={register}
+            errors={errors}
+          />
+
+          <input 
+            type="submit" 
+            value="Create project"
+            className="bg-fuchsia-700 hover:bg-fuchsia-600 w-full p-3 text-white uppercase font-bold cursor-pointer transition-colors"
+          />
+        </form>
     </>
   )
 }
