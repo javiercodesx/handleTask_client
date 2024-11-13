@@ -1,5 +1,5 @@
 import { ProjectFormData } from "@/types/index";
-import api from "lib/axios";
+import api from "@/lib/axios";
 
 export async function createProject(formData : ProjectFormData) {
     try {
