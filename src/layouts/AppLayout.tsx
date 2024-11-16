@@ -27,7 +27,10 @@ export default function AppLayout() {
           </p>
         </footer>
 
-        <ToastContainer/>
+        <ToastContainer
+          pauseOnFocusLoss={false}
+          pauseOnHover={false}
+        />
     </>
   )
 }
