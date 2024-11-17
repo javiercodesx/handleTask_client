@@ -12,7 +12,7 @@ export const Router = () => {
                     element={ <AppLayout/> }
                 >
                     <Route path="/" element={ <DashboardPage/> } index/>
-                    <Route path="/projects/create" element={ <CreateProjectPage/> } index/>
+                    <Route path="/projects/create" element={ <CreateProjectPage/> }/>
                 </Route>
             </Routes>
         </BrowserRouter>
