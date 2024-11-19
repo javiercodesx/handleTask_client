@@ -20,8 +20,8 @@ export default function CreateProjectPage() {
   
   const mutation = useMutation({
     mutationFn: createProject,
-    onError: () => {
-      console.log(`Error`)
+    onError: (error) => {
+      toast.error(error.message)
     },
     onSuccess: (data) => {
       toast.success(data)
@@ -29,9 +29,8 @@ export default function CreateProjectPage() {
     }
   })
 
-  
-  const handleForm = (formData : ProjectFormData) => {
-    mutation.mutate(formData)
+  const handleForm = async (formData : ProjectFormData) => {
+    await mutation.mutate(formData)
   }
 
   return (
