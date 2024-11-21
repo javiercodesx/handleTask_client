@@ -35,12 +35,12 @@ export default function CreateProjectPage() {
 
   return (
     <>
-        <h1 className="text-5xl font-black">Create project</h1>
-        <p className="text-2xl font-light text-gray-500 mt-5">Fill the form to create a project</p>
+        <h1 className="text-4xl font-black">Create project</h1>
+        <p className="text-xl font-light text-gray-500 mt-5">Fill the form to create a project</p>
       
         <nav className="my-8">
           <Link
-            className="bg-purple-400 hover:bg-purple-500 px-10 py-3 text-white text-xl font-bold cursor-pointer transition-colors"
+            className="bg-gray-950 text-gray-300 border border-gray-300 hover:text-white px-4 py-2 font-semibold cursor-pointer transition-colors"
             to='/'
           >Back to projects</Link>
         </nav>
@@ -58,7 +58,9 @@ export default function CreateProjectPage() {
           <input 
             type="submit" 
             value="Create project"
-            className="bg-fuchsia-700 hover:bg-fuchsia-600 w-full p-3 text-white uppercase font-bold cursor-pointer transition-colors"
+            className="
+            bg-gray-950 text-gray-300 hover:text-white uppercase px-4 py-2 font-semibold cursor-pointer transition-colors
+            w-full p-3"
           />
         </form>
     </>
