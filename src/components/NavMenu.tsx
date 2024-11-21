@@ -7,7 +7,7 @@ export default function NavMenu() {
 
   return (
     <Popover className="relative">
-      <PopoverButton className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 p-1 rounded-lg bg-purple-400">
+      <PopoverButton className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 p-1 rounded-lg bg-gray-900 border border-gray-400">
         <Bars3Icon className='w-8 h-8 text-white ' />
       </PopoverButton>
 
@@ -22,17 +22,17 @@ export default function NavMenu() {
       >
         <PopoverPanel className="absolute left-1/2 z-10 mt-5 flex w-screen lg:max-w-min -translate-x-1/2 lg:-translate-x-48">
           <div className="w-full lg:w-56 shrink rounded-xl bg-white p-4 text-sm font-semibold leading-6 text-gray-900 shadow-lg ring-1 ring-gray-900/5">
-            <p className='text-center'>Hello: User</p>
+            <p className='text-center text-gray-800 my-4'>Hello User!</p>
             <Link
               to='/profile'
-              className='block p-2 hover:text-purple-950'
+              className='block text-center text-gray-500 p-2 hover:text-gray-950'
             >My Profile</Link>
             <Link
               to='/'
-              className='block p-2 hover:text-purple-950'
+              className='block text-center text-gray-500 p-2 hover:text-gray-950'
             >My projects</Link>
             <button
-              className='block p-2 hover:text-purple-950'
+              className='block mx-auto text-gray-500 p-2 hover:text-red-600'
               type='button'
               onClick={() => { }}
             >
