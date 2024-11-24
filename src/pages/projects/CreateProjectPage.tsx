@@ -36,9 +36,10 @@ export default function CreateProjectPage() {
   return (
     <>
         <h1 className="text-4xl font-black">Create project</h1>
-        <p className="text-xl font-light text-gray-500 mt-5">Fill the form to create a project</p>
       
-        <nav className="my-8">
+        <nav className="my-8 flex items-center justify-between">
+          <p className="text-xl font-light text-gray-500">Fill the form to create a project</p>
+
           <Link
             className="bg-gray-950 text-gray-300 border border-gray-300 hover:text-white px-4 py-2 font-semibold cursor-pointer transition-colors"
             to='/'
