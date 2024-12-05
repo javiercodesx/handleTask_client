@@ -1,6 +1,7 @@
 import { Navigate, useParams } from "react-router-dom"
 import { useQuery } from "@tanstack/react-query"
 import { getProjectById } from "@/api/ProjectApi"
+import EditProjectForm from "@/components/projects/EditProjectForm"
 
 export default function EditProjectPage() {
     const params = useParams()
@@ -14,7 +15,6 @@ export default function EditProjectPage() {
 
     if(isLoading) return <h2 className="text-red-500 text-2xl text-center">Loading...</h2>
     if(isError) return <Navigate to='/404'/>
-    return (
-        <div>EditProjectPage</div>
-    )
+    
+    if(data) return <EditProjectForm />
 }
