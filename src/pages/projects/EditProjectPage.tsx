@@ -12,7 +12,7 @@ export default function EditProjectPage() {
         retry: false
     })
 
-    if(isLoading) return 'Charging...'
+    if(isLoading) return <h2 className="text-red-500 text-2xl text-center">Loading...</h2>
     if(isError) return <Navigate to='/404'/>
     return (
         <div>EditProjectPage</div>
