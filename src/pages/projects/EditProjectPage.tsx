@@ -16,5 +16,5 @@ export default function EditProjectPage() {
     if(isLoading) return <h2 className="text-red-500 text-2xl text-center">Loading...</h2>
     if(isError) return <Navigate to='/404'/>
     
-    if(data) return <EditProjectForm />
+    if(data) return <EditProjectForm data={data} />
 }
