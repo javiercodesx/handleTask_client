@@ -30,7 +30,7 @@ export async function getAllProjects() {
 export async function getProjectById(id: Project['_id']) {
     try {
         const { data } = await api(`/projects/${id}`)
-        console.log(data)
+        return data
     } catch (error) {
         if(isAxiosError(error) && error.response){
             throw new Error(error.response.data.error)
@@ -46,7 +46,7 @@ type ProjectAPIType = {
 export async function updateProject({formData, projectId} : ProjectAPIType) {
     try {
         const { data } = await api.post(`/projects/${projectId}`, formData)
-        console.log(data)
+        return data
     } catch (error) {
         if(isAxiosError(error) && error.response){
             throw new Error(error.response.data.error)
