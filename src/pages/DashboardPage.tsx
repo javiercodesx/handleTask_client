@@ -1,15 +1,29 @@
 import { Link } from "react-router-dom"
-import { useQuery } from '@tanstack/react-query'
-import { getAllProjects } from "@/api/ProjectApi"
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
+import { deleteProject, getAllProjects } from "@/api/ProjectApi"
 import { Fragment } from 'react'
 import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react'
 import { EllipsisVerticalIcon } from '@heroicons/react/20/solid'
+import { toast } from "react-toastify"
 
 export default function DashboardPage() {
 
   const { data, isLoading } = useQuery({
     queryKey: ['projects'],
     queryFn: getAllProjects
+  })
+
+  const queryClient = useQueryClient()
+
+  const { mutate } = useMutation({
+    mutationFn: deleteProject,
+    onError: (error) => {
+      toast.error(error.message)
+    },
+    onSuccess: (data) => {
+      toast.success(data)
+      queryClient.invalidateQueries({queryKey: ['projects']})
+    },
   })
 
   if (isLoading) return <h2 className="text-red-500 text-2xl text-center">Loading...</h2>
@@ -72,7 +86,7 @@ export default function DashboardPage() {
                         <button
                           type='button'
                           className='block px-3 py-1 text-sm leading-6 text-red-500'
-                          onClick={() => { }}
+                          onClick={() => mutate(project._id)}
                         >
                           Delete project
                         </button>
