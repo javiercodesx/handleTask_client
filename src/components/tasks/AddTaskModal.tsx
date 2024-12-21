@@ -1,6 +1,9 @@
 import { Fragment } from 'react';
 import { Dialog, DialogPanel, DialogTitle, Transition, TransitionChild } from '@headlessui/react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { TaskFormData } from '@/types/index';
+import TaskForm from './TaskForm';
 
 export default function AddTaskModal() {
     const navigate = useNavigate()
@@ -8,6 +11,16 @@ export default function AddTaskModal() {
     const queryParams = new URLSearchParams(location.search)
     const modalTask = queryParams.get('newTask')
     const show = modalTask ? true : false
+
+    const initialValues : TaskFormData = {
+        name: '',
+        description: ''
+    }
+    const { register, handleSubmit, formState: {errors}} = useForm({defaultValues: initialValues})
+
+    const handleCreateTask = (formData : TaskFormData) => {
+        console.log(formData)
+    }
 
     return (
         <>
@@ -47,6 +60,24 @@ export default function AddTaskModal() {
                                     <p className="text-xl font-bold">Llena el formulario y crea  {''}
                                         <span className="text-fuchsia-600">una tarea</span>
                                     </p>
+
+                                    <form
+                                        className='mt-10 space-y-3'
+                                        onSubmit={handleSubmit(handleCreateTask)}
+                                        noValidate
+                                    >
+                                        <TaskForm
+                                            register={register}
+                                            errors={errors}
+                                        />
+                                        <input 
+                                            type="submit" 
+                                            value="Save task"
+                                            className="
+                                            bg-gray-950 text-gray-300 hover:text-white uppercase px-4 py-2 font-semibold cursor-pointer transition-colors
+                                            w-full p-3"
+                                        />
+                                    </form>
 
                                 </DialogPanel>
                             </TransitionChild>
