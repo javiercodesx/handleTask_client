@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query"
 import { getProjectById } from "@/api/ProjectApi"
 import EditProjectForm from "@/components/projects/EditProjectForm"
 import AddTaskModal from "@/components/tasks/AddTaskModal"
+import TaskList from "@/components/tasks/TaskList"
 
 export default function ProjectDetailsPage() {
     const navigate = useNavigate()
@@ -33,6 +34,9 @@ export default function ProjectDetailsPage() {
           </button>
         </nav>
 
+        <TaskList
+          tasks={data.tasks}
+        />
         <AddTaskModal/>
       </>
     )
