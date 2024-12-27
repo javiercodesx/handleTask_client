@@ -1,7 +1,6 @@
 import { Navigate, useNavigate, useParams } from "react-router-dom"
 import { useQuery } from "@tanstack/react-query"
 import { getProjectById } from "@/api/ProjectApi"
-import EditProjectForm from "@/components/projects/EditProjectForm"
 import AddTaskModal from "@/components/tasks/AddTaskModal"
 import TaskList from "@/components/tasks/TaskList"
 
@@ -27,7 +26,7 @@ export default function ProjectDetailsPage() {
         <nav className="my-5 flex gap-3">
           <button
             type="button"
-            className="bg-gray-950 hover:bg-gray-800 px-10 py-3 text-gray-100 text-xl font-bold cursor-pointer transition-colors"
+            className="bg-gray-950 hover:bg-gray-800 px-10 py-2 text-gray-100 font-bold cursor-pointer transition-colors"
             onClick={() => navigate('?newTask=true')}
           >
             Add Task

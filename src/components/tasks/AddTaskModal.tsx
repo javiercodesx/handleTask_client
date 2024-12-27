@@ -75,17 +75,17 @@ export default function AddTaskModal() {
                                 <DialogPanel className="w-full max-w-4xl transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all p-16">
                                     <DialogTitle
                                         as="h3"
-                                        className="font-black text-4xl  my-5"
+                                        className="font-black text-3xl mb-8"
                                     >
-                                        Nueva Tarea
+                                        New task
                                     </DialogTitle>
 
-                                    <p className="text-xl font-bold">Llena el formulario y crea  {''}
-                                        <span className="text-fuchsia-600">una tarea</span>
+                                    <p className="text-xl font-semibold">Fill the form & create a {''}
+                                        <span className="text-fuchsia-600">new task</span>
                                     </p>
 
                                     <form
-                                        className='mt-10 space-y-3'
+                                        className='mt-6 space-y-3'
                                         onSubmit={handleSubmit(handleCreateTask)}
                                         noValidate
                                     >
@@ -97,7 +97,7 @@ export default function AddTaskModal() {
                                             type="submit" 
                                             value="Save task"
                                             className="
-                                            bg-gray-950 text-gray-300 hover:text-white uppercase px-4 py-2 font-semibold cursor-pointer transition-colors
+                                            bg-gray-950 text-gray-300 hover:text-white uppercase px-4 py-2 font-bold cursor-pointer transition-colors
                                             w-full p-3"
                                         />
                                     </form>

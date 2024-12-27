@@ -22,7 +22,7 @@ export default function TaskCard({task} : TaskCardProps) {
       <div className="flex shrink-0  gap-x-6">
         <Menu as="div" className="relative flex-none">
             <MenuButton className="-m-2.5 block p-2.5 text-gray-500 hover:text-gray-900">
-                <span className="sr-only">opciones</span>
+                <span className="sr-only">options</span>
                 <EllipsisVerticalIcon className="h-9 w-9" aria-hidden="true" />
             </MenuButton>
             <Transition as={Fragment} enter="transition ease-out duration-100" enterFrom="transform opacity-0 scale-95"
@@ -32,18 +32,18 @@ export default function TaskCard({task} : TaskCardProps) {
                     className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none">
                     <MenuItem>
                         <button type='button' className='block px-3 py-1 text-sm leading-6 text-gray-900'>
-                            Ver Tarea
+                            View task
                         </button>
                     </MenuItem>
                     <MenuItem>
                         <button type='button' className='block px-3 py-1 text-sm leading-6 text-gray-900'>
-                            Editar Tarea
+                            Edit task
                         </button>
                     </MenuItem>
 
                     <MenuItem>
                         <button type='button' className='block px-3 py-1 text-sm leading-6 text-red-500'>
-                            Eliminar Tarea
+                            Delete task
                         </button>
                     </MenuItem>
                 </MenuItems>
