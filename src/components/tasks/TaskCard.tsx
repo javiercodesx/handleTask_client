@@ -33,9 +33,9 @@ export default function TaskCard({task} : TaskCardProps) {
                 enterTo="transform opacity-100 scale-100" leave="transition ease-in duration-75"
                 leaveFrom="transform opacity-100 scale-100" leaveTo="transform opacity-0 scale-95">
                 <MenuItems
-                    className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none">
+                    className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-gray-300 py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none">
                     <MenuItem>
-                        <button type='button' className='block px-3 py-1 text-sm leading-6 text-gray-900'>
+                        <button type='button' className='block text-sm px-3 py-1 text-center mx-auto leading-6 text-gray-900'>
                             View task
                         </button>
                     </MenuItem>
@@ -43,13 +43,13 @@ export default function TaskCard({task} : TaskCardProps) {
                         <button
                         onClick={() => navigate(location.pathname + `?editTask=${task._id}`)}
                         type='button' 
-                        className='block px-3 py-1 text-sm leading-6 text-gray-900'>
+                        className='block text-sm px-3 py-1 leading-6 mx-auto  text-gray-900'>
                             Edit task
                         </button>
                     </MenuItem>
 
                     <MenuItem>
-                        <button type='button' className='block px-3 py-1 text-sm leading-6 text-red-500'>
+                        <button type='button' className='block text-sm px-3 py-1 mx-auto  leading-6 text-red-600'>
                             Delete task
                         </button>
                     </MenuItem>

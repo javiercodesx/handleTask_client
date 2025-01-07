@@ -43,14 +43,14 @@ export default function TaskList({tasks} : TaskListProps) {
   
     return (
         <>
-            <h2 className="text-3xl font-black my-10">Tasks</h2>
+            <h2 className="text-3xl font-bold my-10">Tasks</h2>
 
             <div className='flex gap-5 overflow-x-scroll 2xl:overflow-auto pb-32'>
                 {Object.entries(groupedTasks).map(([status, tasks]) => (
                     <div key={status} className='min-w-[300px] 2xl:min-w-0 2xl:w-1/5'>
 
                         <h3 
-                            className={`capitalize font-light border border-x-slate-300 bg-white p-3 border-t-8 ${statusStyles[status]}`}
+                            className={`capitalize border border-x-slate-300 bg-white p-3 font-bold border-t-8 ${statusStyles[status]}`}
                         >{statusNames[status]}</h3>
 
                         <ul className='mt-5 space-y-5'>
