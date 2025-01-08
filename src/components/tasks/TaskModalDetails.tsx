@@ -1,17 +1,36 @@
 import { Fragment } from 'react';
 import { Dialog, DialogPanel, DialogTitle, Transition, TransitionChild } from '@headlessui/react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import { getTaskById } from '@/api/TaskAPI';
+import { toast } from 'react-toastify';
 
 
 export default function TaskModalDetails() {
 
     const navigate = useNavigate()
+
     const location = useLocation()
     const queryParams = new URLSearchParams(location.search)
-    const taskId = queryParams.get('viewTask')
+    const taskId = queryParams.get('viewTask')!
     const show = taskId ? true : false
   
-    return (
+    const params = useParams()
+    const projectId = params.projectId!
+
+    const { data, isError, error } = useQuery({
+        queryKey: ['task', taskId],
+        queryFn: () => getTaskById({projectId, taskId}),
+        enabled: !!taskId,
+        retry: false
+    }) 
+
+    if(isError){
+        toast.error(error.message)
+        return <Navigate to={`/projects/${projectId}`} />
+    }
+
+    if(data) return (
         <>
             <Transition appear show={show} as={Fragment}>
                 <Dialog as="div" className="relative z-10" onClose={() => navigate(location.pathname, {replace : true})}>
@@ -44,8 +63,8 @@ export default function TaskModalDetails() {
                                     <DialogTitle
                                         as="h3"
                                         className="font-black text-4xl text-slate-600 my-5"
-                                    >Title here</DialogTitle>
-                                    <p className='text-lg text-slate-500 mb-2'>Description</p>
+                                    >{data.name}</DialogTitle>
+                                    <p className='text-lg text-slate-500 mb-2'>Description: {data.description}</p>
                                     <div className='my-5 space-y-3'>
                                         <label className='font-bold'>State</label>
                                     </div>
