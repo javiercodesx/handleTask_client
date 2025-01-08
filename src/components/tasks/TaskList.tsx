@@ -17,7 +17,7 @@ const initialStatusGroups : GroupedTasks = {
     completed: []
 }
 
-const statusNames : {[key: string]: string} = {
+export const statusNames : {[key: string]: string} = {
     pending: 'Pending',
     onHold: 'On hold',
     inProgress: 'In progress',
