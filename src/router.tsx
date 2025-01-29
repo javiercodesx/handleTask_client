@@ -6,7 +6,8 @@ import EditProjectPage from "./pages/projects/EditProjectPage";
 import ProjectDetailsPage from "./pages/projects/ProjectDetailsPage";
 import AuthLayout from "./layouts/AuthLayout";
 import LoginPage from "./pages/auth/LoginPage";
-import RegisterView from "./pages/auth/RegisterPage";
+import RegisterPage from "./pages/auth/RegisterPage";
+import ConfirmAccountPage from "./pages/auth/ConfirmAccountPage";
 
 export const Router = () => {
     
@@ -26,7 +27,8 @@ export const Router = () => {
                     element={ <AuthLayout/> }
                 >
                     <Route path="/auth/login" element={ <LoginPage /> } />
-                    <Route path="/auth/register" element={ <RegisterView /> } />
+                    <Route path="/auth/register" element={ <RegisterPage /> } />
+                    <Route path="/auth/confirm-account" element={ <ConfirmAccountPage /> } />
                 </Route>
             </Routes>
         </BrowserRouter>

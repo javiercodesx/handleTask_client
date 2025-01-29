@@ -6,7 +6,7 @@ import { useMutation } from "@tanstack/react-query";
 import { createAccount } from "@/api/AuthAPI";
 import { toast } from "react-toastify";
 
-export default function RegisterView() {
+export default function RegisterPage() {
   
   const initialValues: UserRegistrationForm = {
     name: '',
