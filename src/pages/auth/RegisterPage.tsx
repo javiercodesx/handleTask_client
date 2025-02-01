@@ -39,7 +39,7 @@ export default function RegisterPage() {
             <h1 className="text-5xl font-black text-white">Create  account</h1>
             <p className="text-2xl font-light text-white mt-5">
                 Fill out the form to  {''}
-                <span className=" text-fuchsia-500 font-bold"> create your account</span>
+                <span className=" text-fuchsia-600 font-bold"> create your account</span>
             </p>
 
             <form
@@ -133,7 +133,7 @@ export default function RegisterPage() {
             <input
             type="submit"
             value='Register'
-            className="bg-fuchsia-600 hover:bg-fuchsia-700 w-full p-3  text-white font-black  text-xl cursor-pointer"
+            className="bg-gray-900 hover:bg-bg-gray-800 w-full p-3  text-white font-black  text-xl cursor-pointer"
             />
         </form>
 
