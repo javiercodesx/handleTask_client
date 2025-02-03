@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { PinInput, PinInputField } from "@chakra-ui/pin-input"
 
 export default function ConfirmAccountPage() {
 
@@ -15,6 +16,16 @@ export default function ConfirmAccountPage() {
         <label
           className="font-normal text-2xl text-center block"
         >6-digit code</label>
+        <div className="flex justify-center gap-5">
+          <PinInput>
+            <PinInputField className='w-10 h-10 p-3 text-center rounded-lg border-gray-300 border placeholder-white'/>
+            <PinInputField className='w-10 h-10 p-3 text-center rounded-lg border-gray-300 border placeholder-white'/>
+            <PinInputField className='w-10 h-10 p-3 text-center rounded-lg border-gray-300 border placeholder-white'/>
+            <PinInputField className='w-10 h-10 p-3 text-center rounded-lg border-gray-300 border placeholder-white'/>
+            <PinInputField className='w-10 h-10 p-3 text-center rounded-lg border-gray-300 border placeholder-white'/>
+            <PinInputField className='w-10 h-10 p-3 text-center rounded-lg border-gray-300 border placeholder-white'/>
+          </PinInput>
+        </div>
 
       </form>
 
