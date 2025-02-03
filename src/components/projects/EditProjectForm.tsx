@@ -3,7 +3,7 @@ import ProjectForm from "./ProjectForm";
 import { ProjectFormData } from "@/types/index";
 import { useForm } from "react-hook-form";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { updateProject } from "@/api/ProjectApi";
+import { updateProject } from "@/api/ProjectAPI";
 import { toast } from "react-toastify";
 
 type EditProjectFormProps = {

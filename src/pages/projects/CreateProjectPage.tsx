@@ -4,7 +4,7 @@ import { useMutation } from "@tanstack/react-query";
 import { toast } from 'react-toastify'
 import ProjectForm from "@/components/projects/ProjectForm";
 import { ProjectFormData } from "@/types/index";
-import { createProject } from "@/api/ProjectApi";
+import { createProject } from "@/api/ProjectAPI";
 
 export default function CreateProjectPage() {
 
