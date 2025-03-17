@@ -51,12 +51,11 @@ export default function ConfirmAccountPage() {
             <PinInputField className='w-10 h-10 p-3 text-center rounded-lg border-gray-300 border placeholder-white'/>
           </PinInput>
         </div>
-
       </form>
 
       <nav className="mt-10 flex flex-col space-y-4">
         <Link
-          to='/auth/new-code'
+          to='/auth/request-code'
           className="text-center text-gray-300 font-normal"
         >
           Request a new code
