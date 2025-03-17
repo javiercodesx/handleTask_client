@@ -9,28 +9,32 @@ import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import ConfirmAccountPage from "./pages/auth/ConfirmAccountPage";
 import RequestNewCodePage from "./pages/auth/RequestNewCodePage";
+import ForgotPasswordPage from "./pages/auth/ForgotPasswordPage";
+import NewPassowordPage from "./pages/auth/NewPasswordPage";
 
 export const Router = () => {
-    
+
     return (
         <BrowserRouter>
             <Routes>
                 <Route
-                    element={ <AppLayout/> }
+                    element={<AppLayout />}
                 >
-                    <Route path="/" element={ <DashboardPage/> } index/>
-                    <Route path="/projects/create" element={ <CreateProjectPage/> }/>
-                    <Route path="/projects/:projectId" element={ <ProjectDetailsPage/> }/>
-                    <Route path="/projects/:projectId/edit" element={ <EditProjectPage/> }/>
+                    <Route path="/" element={<DashboardPage />} index />
+                    <Route path="/projects/create" element={<CreateProjectPage />} />
+                    <Route path="/projects/:projectId" element={<ProjectDetailsPage />} />
+                    <Route path="/projects/:projectId/edit" element={<EditProjectPage />} />
                 </Route>
 
                 <Route
-                    element={ <AuthLayout/> }
+                    element={<AuthLayout />}
                 >
-                    <Route path="/auth/login" element={ <LoginPage /> } />
-                    <Route path="/auth/register" element={ <RegisterPage /> } />
-                    <Route path="/auth/confirm-account" element={ <ConfirmAccountPage /> } />
-                    <Route path="/auth/request-code" element={ <RequestNewCodePage /> } />
+                    <Route path="/auth/login" element={<LoginPage />} />
+                    <Route path="/auth/register" element={<RegisterPage />} />
+                    <Route path="/auth/confirm-account" element={<ConfirmAccountPage />} />
+                    <Route path="/auth/request-code" element={<RequestNewCodePage />} />
+                    <Route path="/auth/forgot-password" element={<ForgotPasswordPage />} />
+                    <Route path="/auth/new-password" element={<NewPassowordPage />} />
                 </Route>
             </Routes>
         </BrowserRouter>
