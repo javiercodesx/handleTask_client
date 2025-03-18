@@ -21,9 +21,9 @@ export default function RegisterView() {
         onSuccess: (data) => {
             toast.success(data)
         },
-    })   
+    })
 
-    const handleRequestCode = (formData: RequestConfirmationCodeForm) => { 
+    const handleRequestCode = (formData: RequestConfirmationCodeForm) => {
         mutate(formData)
     }
 
