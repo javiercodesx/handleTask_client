@@ -1,7 +1,21 @@
+import NewPasswordToken from "@/components/auth/NewPasswordToken"
+import NewPasswordForm from "@/components/auth/NewPasswordForm"
+import { useState } from "react"
 
 
 export default function NewPasswordPage() {
+
+  const [isValidToken, setIsValidToken] = useState(false)
+
   return (
-    <div>NewPassowordPage</div>
+    <>
+      <h1 className="text-5xl font-black text-white">Reset Password</h1>
+      <p className="text-2xl font-light text-white mt-5">
+        Please enter the token you received  {''}
+        <span className=" text-fuchsia-600 font-bold"> via email</span>
+      </p>
+
+      {isValidToken ? <NewPasswordToken /> : <NewPasswordForm />}
+    </>
   )
 }
