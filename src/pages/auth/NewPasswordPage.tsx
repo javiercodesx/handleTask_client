@@ -17,7 +17,7 @@ export default function NewPasswordPage() {
         <span className=" text-fuchsia-600 font-bold"> via email</span>
       </p>
 
-      {isValidToken ?
+      {!isValidToken ?
         <NewPasswordToken token={token} setToken={setToken} setIsValidToken={setIsValidToken} /> :
         <NewPasswordForm token={token} />}
     </>
