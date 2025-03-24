@@ -20,12 +20,12 @@ export default function ConfirmAccountPage() {
     },
   })
 
-  const handleTokenChange = (token : ConfirmToken['token']) => {
+  const handleTokenChange = (token: ConfirmToken['token']) => {
     setToken(token)
   }
 
   const handleComplete = (token: ConfirmToken['token']) => {
-    mutate( {token} )
+    mutate({ token })
   }
 
   return (
@@ -43,20 +43,25 @@ export default function ConfirmAccountPage() {
         >6-digit code</label>
         <div className="flex justify-center gap-5">
           <PinInput value={token} onChange={handleTokenChange} onComplete={handleComplete}>
-            <PinInputField className='w-10 h-10 p-3 text-center rounded-lg border-gray-300 border placeholder-white'/>
-            <PinInputField className='w-10 h-10 p-3 text-center rounded-lg border-gray-300 border placeholder-white'/>
-            <PinInputField className='w-10 h-10 p-3 text-center rounded-lg border-gray-300 border placeholder-white'/>
-            <PinInputField className='w-10 h-10 p-3 text-center rounded-lg border-gray-300 border placeholder-white'/>
-            <PinInputField className='w-10 h-10 p-3 text-center rounded-lg border-gray-300 border placeholder-white'/>
-            <PinInputField className='w-10 h-10 p-3 text-center rounded-lg border-gray-300 border placeholder-white'/>
+            <PinInputField className='w-10 h-10 p-3 text-center rounded-lg border-gray-300 border placeholder-white' />
+            <PinInputField className='w-10 h-10 p-3 text-center rounded-lg border-gray-300 border placeholder-white' />
+            <PinInputField className='w-10 h-10 p-3 text-center rounded-lg border-gray-300 border placeholder-white' />
+            <PinInputField className='w-10 h-10 p-3 text-center rounded-lg border-gray-300 border placeholder-white' />
+            <PinInputField className='w-10 h-10 p-3 text-center rounded-lg border-gray-300 border placeholder-white' />
+            <PinInputField className='w-10 h-10 p-3 text-center rounded-lg border-gray-300 border placeholder-white' />
           </PinInput>
         </div>
       </form>
 
       <nav className="mt-10 flex flex-col space-y-4">
         <Link
-          to='/auth/request-code'
+          to={'/auth/login'}
           className="text-center text-gray-300 font-normal"
+        >Account already confirmed? Log in</Link>
+
+        <Link
+          to='/auth/request-code'
+          className="text-center text-gray-300 font-light"
         >
           Request a new code
         </Link>
