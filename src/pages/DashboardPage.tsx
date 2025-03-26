@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { deleteProject, getAllProjects } from "@/api/ProjectAPI"
+import { deleteProject, getAllProjects } from "@/api/ProjectApi"
 import { Fragment } from 'react'
 import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react'
 import { EllipsisVerticalIcon } from '@heroicons/react/20/solid'
