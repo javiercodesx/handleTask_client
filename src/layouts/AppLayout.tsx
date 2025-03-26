@@ -25,7 +25,9 @@ export default function AppLayout() {
             </Link>
           </div>
 
-          <NavMenu />
+          <NavMenu
+            userName={data.name}
+          />
         </div>
       </header>
 
