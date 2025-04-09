@@ -9,14 +9,14 @@ type NavMenuProps = {
   userName: User['name']
 }
 
-const queryClient = useQueryClient()
-
-const logOut = () => {
-  localStorage.removeItem('AUTH_TOKEN_HANDLETASK')
-  queryClient.invalidateQueries({ queryKey: ['user'] })
-}
-
 export default function NavMenu({ userName }: NavMenuProps) {
+
+  const queryClient = useQueryClient()
+
+  const logOut = () => {
+    localStorage.removeItem('AUTH_TOKEN_HANDLETASK')
+    queryClient.invalidateQueries({ queryKey: ['user'] })
+  }
 
   return (
     <Popover className="relative wful">
