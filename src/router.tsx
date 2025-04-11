@@ -11,6 +11,7 @@ import ConfirmAccountPage from "./pages/auth/ConfirmAccountPage";
 import RequestNewCodePage from "./pages/auth/RequestNewCodePage";
 import ForgotPasswordPage from "./pages/auth/ForgotPasswordPage";
 import NewPassowordPage from "./pages/auth/NewPasswordPage";
+import ProjectTeamPage from "./pages/projects/ProjectTeamPage";
 
 export const Router = () => {
 
@@ -24,6 +25,7 @@ export const Router = () => {
                     <Route path="/projects/create" element={<CreateProjectPage />} />
                     <Route path="/projects/:projectId" element={<ProjectDetailsPage />} />
                     <Route path="/projects/:projectId/edit" element={<EditProjectPage />} />
+                    <Route path="/projects/:projectId/team" element={<ProjectTeamPage />} />
                 </Route>
 
                 <Route
