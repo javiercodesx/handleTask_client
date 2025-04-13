@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 import { Dialog, DialogPanel, DialogTitle, Transition, TransitionChild } from '@headlessui/react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import AddMemberForm from './AddMemberForm';
 
 export default function AddMemberModal() {
 
@@ -11,7 +12,7 @@ export default function AddMemberModal() {
     const addMember = queryParams.get('addMember');
     const show = addMember ? true : false
 
-    
+
     return (
         <>
             <Transition appear show={show} as={Fragment}>
@@ -50,7 +51,7 @@ export default function AddMemberModal() {
                                         <span className="text-fuchsia-600">to add them to the project</span>
                                     </p>
 
-                                    
+                                    <AddMemberForm />
                                 </DialogPanel>
                             </TransitionChild>
                         </div>
