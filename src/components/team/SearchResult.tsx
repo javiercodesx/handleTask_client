@@ -5,14 +5,14 @@ import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 type SearchResultProps = {
-    user: TeamMember
+    user: TeamMember,
+    reset: () => void
 }
 
-export default function SearchResult({ user }: SearchResultProps) {
+export default function SearchResult({ user, reset }: SearchResultProps) {
 
     const params = useParams()
     const projectId = params.projectId!
-    console.log(projectId)
 
     const { mutate } = useMutation({
         mutationFn: addUserToProject,
@@ -21,11 +21,12 @@ export default function SearchResult({ user }: SearchResultProps) {
         },
         onSuccess: (data) => {
             toast.success(data)
+            reset()
         },
     })
 
     const handleAddUserToProject = () => {
-        const data = {projectId, id: user._id}
+        const data = { projectId, id: user._id }
         mutate(data)
     }
 
