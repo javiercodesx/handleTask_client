@@ -4,6 +4,7 @@ import { useMutation } from "@tanstack/react-query";
 import ErrorMessage from "../ErrorMessage";
 import { TeamMemberForm } from "@/types/index";
 import { findUserByEmail } from "@/api/TeamAPI";
+import SearchResult from "./SearchResult";
 
 export default function AddMemberForm() {
     const initialValues: TeamMemberForm = {
@@ -18,8 +19,8 @@ export default function AddMemberForm() {
         mutationFn: findUserByEmail,
     })
 
-    const handleSearchUser = async (formData : TeamMemberForm) => {
-        const data = {projectId, formData}
+    const handleSearchUser = async (formData: TeamMemberForm) => {
+        const data = { projectId, formData }
         mutation.mutate(data)
     }
 
@@ -58,12 +59,13 @@ export default function AddMemberForm() {
                 <input
                     type="submit"
                     className=" bg-fuchsia-600 hover:bg-fuchsia-700 w-full p-3  text-white font-black  text-xl cursor-pointer"
-                    value='Add member'
+                    value='Search member'
                 />
             </form>
 
             {mutation.isPending && <p className="text-center pt-10">Loading...</p>}
             {mutation.error && <p className="text-center pt-10">{mutation.error.message}</p>}
+            {mutation.data && <SearchResult user={mutation.data} />}
         </>
     )
 }
