@@ -1,10 +1,11 @@
 import AddMemberModal from "@/components/team/AddMemberModal"
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom"
-import { useQuery } from "@tanstack/react-query"
-import { getProjectTeam } from "@/api/TeamAPI"
+import { useMutation, useQuery } from "@tanstack/react-query"
+import { getProjectTeam, removeUserFromProject } from "@/api/TeamAPI"
 import { Fragment } from "react"
 import { EllipsisVerticalIcon } from "@heroicons/react/20/solid"
 import { Menu, MenuButton, MenuItem, MenuItems, Transition } from "@headlessui/react"
+import { toast } from "react-toastify"
 
 export default function ProjectTeamPage() {
     const navigate = useNavigate()
@@ -15,6 +16,16 @@ export default function ProjectTeamPage() {
         queryKey: ["projectTeam", projectId],
         queryFn: () => getProjectTeam(projectId),
         retry: false
+    })
+
+    const { mutate } = useMutation({
+        mutationFn: removeUserFromProject,
+        onError: (error) => {
+            toast.error(error.message)
+        },
+        onSuccess: (data) => {
+            toast.success(data)
+        }
     })
 
     if (isLoading) return <p>Loading...</p>
@@ -75,6 +86,7 @@ export default function ProjectTeamPage() {
                                                 <button
                                                     type='button'
                                                     className='block px-3 py-1 text-sm leading-6 text-red-500'
+                                                    onClick={() => mutate({ projectId, userId: member._id })}
                                                 >
                                                     Remove user
                                                 </button>
