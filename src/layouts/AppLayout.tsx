@@ -18,7 +18,7 @@ export default function AppLayout() {
   if (data) return (
     <>
       <header className="bg-gray-900 py-5 px-3">
-        <div className="max-w-screen-2xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-2">
+        <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-2">
           <div className="w-52 md:w-64">
             <Link to={'/'}>
               <Logo />
@@ -31,13 +31,13 @@ export default function AppLayout() {
         </div>
       </header>
 
-      <section className="max-w-screen-2xl mx-auto mt-10 p-5">
+      <section className="max-w-screen-xl mx-auto mt-10 p-5">
         <Outlet />
       </section>
 
       <footer className="py-5">
         <p className="text-center">
-          All rights reserved {new Date().getFullYear()}
+          &copy; All rights reserved 2024 - {new Date().getFullYear()}
         </p>
       </footer>
 

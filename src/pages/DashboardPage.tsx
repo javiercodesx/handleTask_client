@@ -50,13 +50,24 @@ export default function DashboardPage() {
             <li key={project._id} className="flex justify-between gap-x-6 px-5 py-10 shadow-lg shadow-blue-100">
               <div className="flex min-w-0 gap-x-4">
                 <div className="min-w-0 flex-auto space-y-2">
+                  <div className="mb-2">
+                    {project.manager === user._id ?
+                      <p className="font-semibold text-xs uppercase bg-indigo-50 text-indigo-700 border-2 border-indigo-700 rounded-md inline-block py-1 px-5">
+                        Manager
+                      </p>
+                      :
+                      <p className="font-semibold text-xs uppercase bg-green-50 text-green-700 border-2 border-green-700 rounded-md inline-block py-1 px-5">
+                        Collaborator
+                      </p>
+                    }
+                  </div>
                   <Link to={`/projects/${project._id}`}
-                    className="text-gray-600 cursor-pointer hover:underline text-3xl font-bold"
+                    className="text-gray-800 cursor-pointer hover:underline text-3xl font-bold"
                   >{project.projectName}</Link>
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-gray-600">
                     Cliente: {project.clientName}
                   </p>
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-gray-500">
                     {project.description}
                   </p>
                 </div>
