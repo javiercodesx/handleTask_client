@@ -6,6 +6,7 @@ import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/r
 import { EllipsisVerticalIcon } from '@heroicons/react/20/solid'
 import { toast } from "react-toastify"
 import { useAuth } from "@/hooks/useAuth"
+import { isManager } from "@/utils/policies"
 
 export default function DashboardPage() {
 
@@ -51,7 +52,7 @@ export default function DashboardPage() {
               <div className="flex min-w-0 gap-x-4">
                 <div className="min-w-0 flex-auto space-y-2">
                   <div className="mb-2">
-                    {project.manager === user._id ?
+                    {isManager(project.manager, user._id) ?
                       <p className="font-semibold text-xs uppercase bg-indigo-50 text-indigo-700 border-2 border-indigo-700 rounded-md inline-block py-1 px-5">
                         Manager
                       </p>
@@ -92,7 +93,7 @@ export default function DashboardPage() {
                         </Link>
                       </MenuItem>
 
-                      {project.manager === user._id && (
+                      {isManager(project.manager, user._id) && (
                         <>
                           <MenuItem>
                             <Link to={`/projects/${project._id}/edit`}
