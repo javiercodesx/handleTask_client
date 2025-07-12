@@ -7,6 +7,7 @@ import EditTaskData from "@/components/tasks/EditTaskData"
 import TaskModalDetails from "@/components/tasks/TaskModalDetails"
 import { useAuth } from "@/hooks/useAuth"
 import { isManager } from "@/utils/policies"
+import { useMemo } from "react"
 
 export default function ProjectDetailsPage() {
   const { data: user, isLoading: authLoading } = useAuth()
@@ -20,6 +21,8 @@ export default function ProjectDetailsPage() {
     queryFn: () => getProjectById(projectId),
     retry: false
   })
+
+  const canEdit: boolean = useMemo(() => data?.manager === user?._id, [data, user]);
 
   if (isLoading && authLoading) return <h2 className="text-red-500 text-2xl text-center">Loading...</h2>
   if (isError) return <Navigate to='/404' />
@@ -48,6 +51,7 @@ export default function ProjectDetailsPage() {
 
       <TaskList
         tasks={data.tasks}
+        canEdit={canEdit}
       />
       <AddTaskModal />
       <EditTaskData />
