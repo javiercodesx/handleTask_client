@@ -41,8 +41,8 @@ export default function ProjectDetailsPage() {
 
           <Link
             to={"team"}
-            className="bg-gray-800 hover:bg-gray-700 px-10 py-2 text-gray-100 font-bold cursor-pointer transition-colors"
-          >collaborators</Link>
+            className="flex items-center bg-gray-800 hover:bg-gray-700 px-10 py-2 text-gray-100 font-bold cursor-pointer transition-colors"
+          >Collaborators</Link>
         </nav>
       )}
 
