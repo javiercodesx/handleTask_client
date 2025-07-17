@@ -17,16 +17,16 @@ export default function TaskModalDetails() {
     const queryParams = new URLSearchParams(location.search)
     const taskId = queryParams.get('viewTask')!
     const show = taskId ? true : false
-  
+
     const params = useParams()
     const projectId = params.projectId!
 
     const { data, isError, error } = useQuery({
         queryKey: ['task', taskId],
-        queryFn: () => getTaskById({projectId, taskId}),
+        queryFn: () => getTaskById({ projectId, taskId }),
         enabled: !!taskId,
         retry: false
-    }) 
+    })
 
     const queryClient = useQueryClient()
     const { mutate } = useMutation({
@@ -36,26 +36,26 @@ export default function TaskModalDetails() {
         },
         onSuccess: (data) => {
             toast.success(data)
-            queryClient.invalidateQueries({queryKey: ['editProject', projectId]})
-            queryClient.invalidateQueries({queryKey: ['taskId', taskId]})
+            queryClient.invalidateQueries({ queryKey: ['editProject', projectId] })
+            queryClient.invalidateQueries({ queryKey: ['taskId', taskId] })
         }
     })
 
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const status = e.target.value as TaskStatus
-        const data = { projectId, taskId, status}
+        const data = { projectId, taskId, status }
         mutate(data)
-    } 
+    }
 
-    if(isError){
+    if (isError) {
         toast.error(error.message)
         return <Navigate to={`/projects/${projectId}`} />
     }
 
-    if(data) return (
+    if (data) return (
         <>
             <Transition appear show={show} as={Fragment}>
-                <Dialog as="div" className="relative z-10" onClose={() => navigate(location.pathname, {replace : true})}>
+                <Dialog as="div" className="relative z-10" onClose={() => navigate(location.pathname, { replace: true })}>
                     <TransitionChild
                         as={Fragment}
                         enter="ease-out duration-300"
@@ -80,21 +80,31 @@ export default function TaskModalDetails() {
                                 leaveTo="opacity-0 scale-95"
                             >
                                 <DialogPanel className="w-full max-w-4xl transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all p-16">
-                                    <p className='text-sm text-slate-700'>Added on: { formatDate( data.createdAt) }</p>
-                                    <p className='text-sm text-slate-700'>Last update: { formatDate( data.updatedAt ) }</p>
+                                    <p className='text-sm text-slate-700'>Added on: {formatDate(data.createdAt)}</p>
+                                    <p className='text-sm text-slate-700'>Last update: {formatDate(data.updatedAt)}</p>
                                     <DialogTitle
                                         as="h3"
                                         className="font-black text-4xl text-slate-600 my-5"
                                     >{data.name}</DialogTitle>
                                     <p className='text-lg text-slate-500 mb-2'>Description: {data.description}</p>
+
+                                    <p className='text-xl font-semibold text-neutral-800 my-2'>History</p>
+                                    {data.completedBy.map(activityLog => (
+                                        <p key={activityLog._id}>
+                                            <span className=' text-neutral-700'>
+                                                {statusNames[activityLog.status]} by
+                                            </span> {''}
+                                            <strong>{activityLog.user.name}</strong>
+                                        </p>
+                                    ))}
                                     <div className='my-5 space-y-3'>
                                         <label className='font-bold'>State:</label>
-                                        <select 
+                                        <select
                                             className='w-full bg-white text-slate-900 border border-gray-400 p-2'
                                             defaultValue={data.status}
                                             onChange={handleChange}
                                         >
-                                            {Object.entries(statusNames).map( ([key, value]) => (
+                                            {Object.entries(statusNames).map(([key, value]) => (
                                                 <option key={key} value={key}>{value}</option>
                                             ))}
                                         </select>
