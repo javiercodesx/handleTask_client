@@ -26,7 +26,7 @@ export default function ProjectTeamPage() {
         },
         onSuccess: (data) => {
             toast.success(data)
-            queryClient.invalidateQueries({queryKey: ["projectTeam", projectId]})
+            queryClient.invalidateQueries({ queryKey: ["projectTeam", projectId] })
         }
     })
 
@@ -101,7 +101,7 @@ export default function ProjectTeamPage() {
                     ))}
                 </ul>
             ) : (
-                <p className='text-center py-20'>No hay miembros en este equipo</p>
+                <p className='text-center py-20'>There are no members in this team</p>
             )}
 
             <AddMemberModal />
